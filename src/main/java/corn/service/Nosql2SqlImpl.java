@@ -5,6 +5,7 @@ package corn.service;
 import com.alibaba.fastjson.JSON;
 import corn.dao.Nosql2SqlDao;
 import corn.pojo.Parame;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
 import tool.Tools;
@@ -26,7 +27,7 @@ public class Nosql2SqlImpl implements Nosql2Sql {
 
     @Resource(name = "corn/dao/Nosql2SqlDao")
     private Nosql2SqlDao dao;
-
+    private static Logger log=Logger.getLogger(Nosql2SqlImpl.class);
     @Override
     public void insertParameToSql() {
         Jedis jedis = tools.getJedis();
@@ -54,7 +55,10 @@ public class Nosql2SqlImpl implements Nosql2Sql {
             newParame.setHour(time.getHour());
             newParame.setMinute(time.getMinute());
             newParame.setSecond(time.getSecond());
+            log.info("list数据插入数据库");
             dao.insertparame(newParame);
+        }else {
+            log.info("list无数据，不进行操作");
         }
     }
     private Integer setAverage(List<Integer> list) {
