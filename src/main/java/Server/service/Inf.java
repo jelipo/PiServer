@@ -13,5 +13,5 @@ public interface Inf {
 	
 	public JSONObject insertParameToRedis(Parame parame);
 	
-	public void insertParameToSql();
+
 }

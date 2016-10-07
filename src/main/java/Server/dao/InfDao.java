@@ -12,5 +12,4 @@ public interface InfDao {
 
 	public HashMap select(Parame parame);
 
-	public void insertparame(Parame parame);
 }

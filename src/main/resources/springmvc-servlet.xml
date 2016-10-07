@@ -9,7 +9,7 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
 
 	<!-- 扫描注解的类 -->
-	<context:component-scan base-package="Listener,Server,Tool" />
+	<context:component-scan base-package="corn,Server,tool" />
 
 	<mvc:annotation-driven>
 		<!-- 配置ResponseBody为fastjson -->

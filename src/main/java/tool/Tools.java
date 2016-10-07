@@ -1,4 +1,4 @@
-package Tool;
+package tool;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
 
 
-@Component
+@Component("tool/Tools")
 public class Tools {
 	/*此类为需要初始化的各项服务，此注释代表初始化此bean时，执行此方法，估计同样也可以放在此函数的构造方法中，
 	 * 但是考虑到服务器关闭时各项服务需要销毁，所以使用@PostConstruct和@PreDestroy注解
@@ -25,7 +25,7 @@ public class Tools {
 	}
 	@PreDestroy
 	private void destory(){
-		System.out.println();
+		log.info("销毁redis客户端");
 		jedis.close();
 	}
 	public Jedis getJedis() {
