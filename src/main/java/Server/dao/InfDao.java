@@ -1,12 +1,9 @@
 package Server.dao;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
+import Server.pojo.Parame;
 import org.springframework.stereotype.Repository;
 
-import Server.pojo.Parame;
+import java.util.HashMap;
 @Repository("infdao")
 public interface InfDao {
 
